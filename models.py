@@ -13,4 +13,5 @@ class Fish(db.Model):
     avg_length = db.Column(db.Integer)
     shape = db.Column(db.String(100))
     avg_life_span = db.Column(db.Integer)
+    #legs = db.Column(db.Bool)
     
