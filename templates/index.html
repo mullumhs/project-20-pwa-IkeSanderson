@@ -2,14 +2,20 @@
 %}
 <div class="container">
   <div class="row">
-    <div class="col-12 col-xl-6 col-xxl-3">
+    {%for i in range(12)%}
+    <div class="col-12 col-xl-6 col-xxl-3 mb-4">
       <!-- This column will be full width on small screens, 
 
                half width on medium screens, 
 
                and one-third width on large screens -->
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
+      <div class="card w-100">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s"
+          class="card-img-top img-fluid"
+          style="object-fit: cover; aspect-ratio: 16/9"
+          alt="..."
+        />
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">
@@ -20,63 +26,10 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-6 col-xxl-3">
-      <!-- This column will be full width on small screens, 
+    {%endfor%}
 
-               half width on medium screens, 
+    <!-- Add your page-specific content here -->
 
-               and one-third width on large screens -->
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-xl-6 col-xxl-3">
-      <!-- This column will be full width on small screens, 
-
-               half width on medium screens, 
-
-               and one-third width on large screens -->
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-xl-6 col-xxl-3">
-      <!-- This column will be full width on small screens, 
-
-               half width on medium screens, 
-
-               and one-third width on large screens -->
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+    {% endblock %}
   </div>
 </div>
-
-<!-- Add your page-specific content here -->
-
-{% endblock %}
