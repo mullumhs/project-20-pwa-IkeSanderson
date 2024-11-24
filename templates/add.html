@@ -1,8 +1,53 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<h1>Welcome to My Inventory App</h1>
+<h1>Add Fish</h1>
 
 <!-- Add your page-specific content here -->
+<form method="post">
+  <input type="text" name="common_name" placeholder="Common Name" required />
+
+  <input
+    type="text"
+    name="scientific_name"
+    placeholder="Scientific Name"
+    required
+  />
+
+  <br />
+
+  <input type="text" name="species" placeholder="Species" required />
+
+  <input type="text" name="shape" placeholder="Shape" required />
+
+  <br />
+
+  <input
+    type="number"
+    name="avg_length"
+    placeholder="Average Length"
+    required
+  />
+
+  <input
+    type="number"
+    name="avg_lifespan"
+    placeholder="Average Lifespan"
+    required
+  />
+  <br />
+  <label for="water_type">Water Type:</label>
+  <label for="water_type">Salt</label>
+  <input type="radio" name="water_type" value="Salt" />
+  <label for="water_type">Fresh</label>
+  <input type="radio" name="water_type" value="Fresh" />
+  <label for="has_legs">Has Legs</label>
+  <label for="water_type">Yes</label>
+  <input type="radio" name="has_legs" value="Yes" />
+  <label for="water_type">No</label>
+  <input type="radio" name="has_legs" value="No" />
+  <br />
+  <input type="submit" value="Add Fish" />
+</form>
 
 {% endblock %}
