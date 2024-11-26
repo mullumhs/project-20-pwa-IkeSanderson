@@ -1,35 +1,81 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<div class="container">
-  <div class="row">
-    {%for i in range(12)%}
-    <div class="col-12 col-xl-6 col-xxl-3 mb-4">
-      <!-- This column will be full width on small screens, 
 
-               half width on medium screens, 
+<div class="row">
+  {%for fish in fishes%}
+  <div class="col-12 col-xl-6 col-xxl-3 mb-4">
+    <!-- This column will be full width on small screens, 
 
-               and one-third width on large screens -->
-      <div class="card w-100">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s"
-          class="card-img-top img-fluid"
-          style="object-fit: cover; aspect-ratio: 16/9"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+              half width on medium screens, 
+
+              and one-third width on large screens -->
+    <div class="card w-100">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s"
+        class="card-img-top img-fluid"
+        style="object-fit: cover; aspect-ratio: 16/9"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{fish['common_name']}}</h5>
+        <p class="card-text">
+          {{fish['scientific_name']}}
+          <br />
+          {{fish['species']}}
+        </p>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Launch demo modal
+        </button>
       </div>
     </div>
-    {%endfor%}
+  </div>
+  {%endfor%}
 
-    <!-- Add your page-specific content here -->
+  <!-- Add your page-specific content here -->
+</div>
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Launch demo modal
+</button>
 
-    {% endblock %}
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body"><p id="test">vdsfdgbsdfg</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
+{% endblock %}

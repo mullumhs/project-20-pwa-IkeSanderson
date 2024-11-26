@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
-from models import db # Also import your database model here
-from views import Fish
+from models import db, Fish# Also import your database model here
+
 
 # Define your routes inside the 'init_routes' function
 # Feel free to rename the routes and functions as you see fit
@@ -12,8 +12,8 @@ def init_routes(app):
 
     @app.route('/', methods=['GET'])
     def get_items():
-        # This route should retrieve all items from the database and display them on the page.
-        return render_template('index.html', message='Displaying all items')
+        fishes = Fish.query.all()
+        return render_template('index.html', message='Displaying all items', fishes = fishes)
 
 
 
@@ -26,14 +26,14 @@ def init_routes(app):
                 species = request.form['species'],
                 shape = request.form['shape'],
                 avg_length = int(request.form['avg_length']),
-                avg_lifespan = int(request.form['avg_lifespan'])
+                avg_lifespan = int(request.form['avg_lifespan']),
                 water_type = request.form['water_type'],
                 has_legs = request.form['has_legs'],
             )
 
             db.session.add(new_fish)
             db.session.commit()
-            return render_template('index.html', message='Fish added successfully')
+            return redirect(url_for('get_items'))
         
         return render_template('add.html')
 
