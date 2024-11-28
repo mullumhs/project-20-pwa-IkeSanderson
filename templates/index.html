@@ -37,6 +37,7 @@
           data-bs-avg_length="{{fish['avg_length']}}"
           data-bs-avg_lifespan="{{fish['avg_lifespan']}}"
           data-bs-has_legs="{{fish['has_legs']}}"
+          data-bs-id="{{fish['id']}}"
         >
           More
         </button>
@@ -69,8 +70,7 @@
       </div>
       <div class="modal-body">
         <p>
-          <strong>Scientific Name: </strong
-          ><span id="scientific_name">Replaced</span>
+          <strong>Scientific Name: </strong><span id="scientific_name">Replaced</span>
           <br />
           <strong>Species: </strong><span id="species">Replaced</span>
           <br />
@@ -80,8 +80,7 @@
           <br />
           <strong>Average Length: </strong><span id="avg_length">Replaced</span>
           <br />
-          <strong>Average Lifespan: </strong
-          ><span id="avg_lifespan">Replaced</span>
+          <strong>Average Lifespan: </strong><span id="avg_lifespan">Replaced</span>
           <br />
           <strong>Has Legs: </strong><span id="has_legs">Replaced</span>
           <br />
@@ -89,7 +88,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-primary">Delete</button>
+        <a href="#" id="id"><button type="button" class="btn btn-primary">Delete</button></a>
       </div>
     </div>
   </div>

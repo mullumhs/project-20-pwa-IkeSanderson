@@ -12,6 +12,7 @@ if (exampleModal) {
     const lengthData = button.getAttribute("data-bs-avg_length");
     const lifeData = button.getAttribute("data-bs-avg_lifespan");
     const legsData = button.getAttribute("data-bs-has_legs");
+    const idData = button.getAttribute("data-bs-id");
     // If necessary, you could initiate an Ajax request here
     // and then do the updating in a callback.
 
@@ -24,6 +25,7 @@ if (exampleModal) {
     const avg_length = exampleModal.querySelector("#avg_length");
     const avg_lifespan = exampleModal.querySelector("#avg_lifespan");
     const has_legs = exampleModal.querySelector("#has_legs");
+    const id = exampleModal.querySelector("#id");
 
     modalTitle.textContent = `${recipient}`;
     species.textContent = `${speciesData}`;
@@ -33,5 +35,6 @@ if (exampleModal) {
     avg_length.textContent = `${lengthData}cm`;
     avg_lifespan.textContent = `${lifeData} years`;
     has_legs.textContent = `${legsData}`;
+    id.setAttribute("href", `/delete?id=${idData}`);
   });
 }

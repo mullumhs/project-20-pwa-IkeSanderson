@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash
-from models import db, Fish# Also import your database model here
+from models import db, Fish # Also import your database model here
 
 
 # Define your routes inside the 'init_routes' function
@@ -45,7 +45,12 @@ def init_routes(app):
 
 
 
-    @app.route('/delete', methods=['POST'])
+    @app.route('/delete', methods=['GET'])
     def delete_item():
         # This route should handle deleting an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item deleted successfully')
+        id = request.args.get("id")
+        fish = db.get_or_404(Fish, id)
+        print(fish)
+        db.session.delete(fish)
+        db.session.commit()
+        return redirect(url_for('get_items'))
