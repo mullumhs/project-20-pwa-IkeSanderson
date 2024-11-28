@@ -15,3 +15,16 @@ class Fish(db.Model):
     shape = db.Column(db.String(100))
     has_legs = db.Column(db.String(100))
     
+    def __str__(self):
+        display = f"""
+            {self.scientific_name}
+            {self.species}
+            {self.shape}
+            {self.water_type}
+            {self.avg_length}
+            {self.avg_lifespan}
+            {self.has_legs}
+
+
+        """
+        return display

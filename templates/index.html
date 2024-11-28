@@ -29,8 +29,16 @@
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
+          data-bs-whatever="{{fish['common_name']}}"
+          data-bs-species="{{fish['species']}}"
+          data-bs-scientific_name="{{fish['scientific_name']}}"
+          data-bs-shape="{{fish['shape']}}"
+          data-bs-water_type="{{fish['water_type']}}"
+          data-bs-avg_length="{{fish['avg_length']}}"
+          data-bs-avg_lifespan="{{fish['avg_lifespan']}}"
+          data-bs-has_legs="{{fish['has_legs']}}"
         >
-          Launch demo modal
+          More
         </button>
       </div>
     </div>
@@ -39,15 +47,6 @@
 
   <!-- Add your page-specific content here -->
 </div>
-<!-- Button trigger modal -->
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div
@@ -68,14 +67,33 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body"><p id="test">vdsfdgbsdfg</p></div>
+      <div class="modal-body">
+        <p>
+          <strong>Scientific Name: </strong
+          ><span id="scientific_name">Replaced</span>
+          <br />
+          <strong>Species: </strong><span id="species">Replaced</span>
+          <br />
+          <strong>Shape: </strong><span id="shape">Replaced</span>
+          <br />
+          <strong>Water Type: </strong><span id="water_type">Replaced</span>
+          <br />
+          <strong>Average Length: </strong><span id="avg_length">Replaced</span>
+          <br />
+          <strong>Average Lifespan: </strong
+          ><span id="avg_lifespan">Replaced</span>
+          <br />
+          <strong>Has Legs: </strong><span id="has_legs">Replaced</span>
+          <br />
+        </p>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary">Delete</button>
       </div>
     </div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='modal.js') }}
+"></script>
 {% endblock %}
