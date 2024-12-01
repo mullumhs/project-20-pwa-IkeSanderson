@@ -38,10 +38,30 @@ def init_routes(app):
         return render_template('add.html')
 
 
-    @app.route('/update', methods=['POST'])
+    @app.route('/update', methods=['Get','POST'])
     def update_item():
         # This route should handle updating an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item updated successfully')
+        
+
+        if request.method == 'POST':
+            id = request.form['id']
+            fish = Fish.query.get(id)
+            fish.common_name = request.form['common_name'],
+            fish.scientific_name = request.form['scientific_name'],
+            fish.species = request.form['species'],
+            fish.shape = request.form['shape'],
+            fish.avg_length = int(request.form['avg_length']),
+            fish.avg_lifespan = int(request.form['avg_lifespan']),
+            fish.water_type = request.form['water_type'],
+            fish.has_legs = request.form['has_legs'],
+            
+            db.session.commit()
+
+            return redirect(url_for('get_items'))
+        
+        id = request.args.get("id")
+        fish = db.get_or_404(Fish, id)
+        return render_template('update.html', message=f'Item updated successfully', fish=fish)
 
 
 

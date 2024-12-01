@@ -25,7 +25,8 @@ if (exampleModal) {
     const avg_length = exampleModal.querySelector("#avg_length");
     const avg_lifespan = exampleModal.querySelector("#avg_lifespan");
     const has_legs = exampleModal.querySelector("#has_legs");
-    const id = exampleModal.querySelector("#id");
+    const del = exampleModal.querySelector("#delete");
+    const update = exampleModal.querySelector("#update");
 
     modalTitle.textContent = `${recipient}`;
     species.textContent = `${speciesData}`;
@@ -35,6 +36,7 @@ if (exampleModal) {
     avg_length.textContent = `${lengthData}cm`;
     avg_lifespan.textContent = `${lifeData} years`;
     has_legs.textContent = `${legsData}`;
-    id.setAttribute("href", `/delete?id=${idData}`);
+    del.setAttribute("href", `/delete?id=${idData}`);
+    update.setAttribute("href", `/update?id=${idData}`);
   });
 }
