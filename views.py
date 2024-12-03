@@ -46,22 +46,22 @@ def init_routes(app):
         if request.method == 'POST':
             id = request.form['id']
             fish = Fish.query.get(id)
-            fish.common_name = request.form['common_name'],
-            fish.scientific_name = request.form['scientific_name'],
-            fish.species = request.form['species'],
-            fish.shape = request.form['shape'],
-            fish.avg_length = int(request.form['avg_length']),
-            fish.avg_lifespan = int(request.form['avg_lifespan']),
-            fish.water_type = request.form['water_type'],
-            fish.has_legs = request.form['has_legs'],
+            fish.common_name = request.form['common_name']
+            fish.scientific_name = request.form['scientific_name']
+            fish.species = request.form['species']
+            fish.shape = request.form['shape']
+            fish.avg_length = int(request.form['avg_length'])
+            fish.avg_lifespan = int(request.form['avg_lifespan'])
+            fish.water_type = request.form['water_type']
+            fish.has_legs = request.form['has_legs']
             
             db.session.commit()
-
             return redirect(url_for('get_items'))
         
         id = request.args.get("id")
         fish = db.get_or_404(Fish, id)
-        return render_template('update.html', message=f'Item updated successfully', fish=fish)
+        print(fish)
+        return render_template('update.html', fish=fish)
 
 
 

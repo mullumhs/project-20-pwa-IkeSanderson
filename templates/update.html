@@ -6,37 +6,57 @@
     <!-- Add your page-specific content here -->
     <form method="post">
         <h1>Update Fish </h1>
-      <input type="text" name="id" placeholder="id" value ="{{fish.['id']}}" readonly />
+      <input type="text" name="id" placeholder="id" value ="{{fish.id}}" readonly />
       <br>
-      <input type="text" name="common_name" placeholder="Common Name" required />
+      <input type="text" name="common_name" placeholder="Common Name" value ="{{fish.common_name}}" required />
     
-      <input type="text" name="scientific_name" placeholder="Scientific Name" required/>
-    
-      <br />
-    
-      <input type="text" name="species" placeholder="Species" required />
-    
-      <input type="text" name="shape" placeholder="Shape" required />
+      <input type="text" name="scientific_name" placeholder="Scientific Name" value ="{{fish.scientific_name}}" required/>
     
       <br />
     
-      <input type="number" name="avg_length" placeholder="Average Length" required/>
+      <input type="text" name="species" placeholder="Species" value ="{{fish.species}}" required />
     
-      <input type="number" name="avg_lifespan" placeholder="Average Lifespan" required/>
+      <input type="text" name="shape" placeholder="Shape" value ="{{fish.shape}}" required />
+    
       <br />
-
+    
+      <input type="number" name="avg_length" placeholder="Average Length" value ="{{fish.avg_length}}" required/>
+    
+      <input type="number" name="avg_lifespan" placeholder="Average Lifespan" value ="{{fish.avg_lifespan}}" required/>
+      <br />
+      {% if fish.water_type == 'Salt' %} 
       <label for="water_type">Water Type:</label>
       <label for="water_type">Salt</label>
-      <input type="radio" name="water_type" value="Salt" />
+      <input type="radio" name="water_type" value="Salt" checked/>
       <label for="water_type">Fresh</label>
       <input type="radio" name="water_type" value="Fresh" />
       <label for="has_legs">Has Legs</label>
       <label for="water_type">Yes</label>
-      <input type="radio" name="has_legs" value="Yes" />
+      
+      {%else%}
+      <label for="water_type">Water Type:</label>
+      <label for="water_type">Salt</label>
+      <input type="radio" name="water_type" value="Salt"/>
+      <label for="water_type">Fresh</label>
+      <input type="radio" name="water_type" value="Fresh" checked/>
+      <label for="has_legs">Has Legs</label>
+      <label for="water_type">Yes</label>
+      {%endif%}
+      
+      {% if fish.has_legs == 'yes' %} 
+      <input type="radio" name="has_legs" value="Yes" checked/>
       <label for="water_type">No</label>
       <input type="radio" name="has_legs" value="No" />
       <br />
       <input type="submit" value="Update Fish" />
+      
+      {%else%}
+      <input type="radio" name="has_legs" value="Yes"/>
+      <label for="water_type">No</label>
+      <input type="radio" name="has_legs" value="No" checked/>
+      <br />
+      <input type="submit" value="Update Fish" />
+      {%endif%}
     </form>
     
     {% endblock %}
