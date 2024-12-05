@@ -74,3 +74,15 @@ def init_routes(app):
         db.session.delete(fish)
         db.session.commit()
         return redirect(url_for('get_items'))
+    
+    @app.route('/search',methods=['GET', 'POST'])
+    def search_fish():
+        if request.method == 'POST':
+            print("Search!!!!")
+            query = request.form['search']
+            
+            #return redirect(url_for('search_fish', query = query  ))
+            return render_template('search.html',  query=query)
+        query = request.args.get('query')
+        fishes = db.session.query(Fish).filter(Fish.common_name.like(query)).all()
+        return render_template('search.html', fishes=fishes, query=query)

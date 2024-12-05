@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    
+    <h1>Search Results for "{{ query }}"</h1>
+
+    
+    <table>
+      <tr>
+        <th>Title</th>
+    
+        <th>Director</th>
+    
+        <th>Year</th>
+    
+        <th>Rating</th>
+      </tr>
+    
+      {% for fish in fishes %}
+    
+      <tr>
+        <td>{{ fish['common_name'] }}</td>
+    
+      </tr>
+    
+      {% endfor %}
+    </table>
+    
+    {% endblock %}
