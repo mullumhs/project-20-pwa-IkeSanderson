@@ -80,9 +80,9 @@ def init_routes(app):
         if request.method == 'POST':
             print("Search!!!!")
             query = request.form['search']
-            
-            #return redirect(url_for('search_fish', query = query  ))
-            return render_template('search.html',  query=query)
+            return redirect(url_for('search_fish', query = query  ))
+       
         query = request.args.get('query')
         fishes = db.session.query(Fish).filter(Fish.common_name.like(query)).all()
+        print(query)
         return render_template('search.html', fishes=fishes, query=query)
