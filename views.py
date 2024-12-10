@@ -12,7 +12,11 @@ def init_routes(app):
 
     @app.route('/', methods=['GET'])
     def get_items():
-        fishes = Fish.query.all()
+        query = request.args.get('query')
+        if query == None:
+            fishes = Fish.query.all()
+        else:
+            fishes = db.session.query(Fish).filter(Fish.common_name.like(query)).all()
         return render_template('index.html', message='Displaying all items', fishes = fishes)
 
 
@@ -29,6 +33,7 @@ def init_routes(app):
                 avg_lifespan = int(request.form['avg_lifespan']),
                 water_type = request.form['water_type'],
                 has_legs = request.form['has_legs'],
+                image = request.form['image'],
             )
 
             db.session.add(new_fish)
@@ -80,9 +85,10 @@ def init_routes(app):
         if request.method == 'POST':
             print("Search!!!!")
             query = request.form['search']
-            return redirect(url_for('search_fish', query = query  ))
+            return redirect(url_for('get_items', query = query  ))
        
         query = request.args.get('query')
+        
         fishes = db.session.query(Fish).filter(Fish.common_name.like(query)).all()
         print(query)
         return render_template('search.html', fishes=fishes, query=query)

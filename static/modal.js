@@ -5,6 +5,7 @@ if (exampleModal) {
     const button = event.relatedTarget;
     // Extract info from data-bs-* attributes
     const recipient = button.getAttribute("data-bs-whatever");
+    
     const speciesData = button.getAttribute("data-bs-species");
     const scientificData = button.getAttribute("data-bs-scientific_name");
     const shapeData = button.getAttribute("data-bs-shape");

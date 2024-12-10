@@ -14,6 +14,7 @@ class Fish(db.Model):
     avg_lifespan = db.Column(db.Integer)
     shape = db.Column(db.String(100))
     has_legs = db.Column(db.String(100))
+    image = db.Column(db.String(200))
     
     def __str__(self):
         display = f"""

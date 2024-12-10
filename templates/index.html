@@ -4,17 +4,19 @@
 <div class="row">
   {%for fish in fishes%}
   <div class="col-12 col-xl-6 col-xxl-3 mb-4">
-    <!-- This column will be full width on small screens, 
+    <!-- This column will be full width on small screens, https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s
 
               half width on medium screens, 
 
               and one-third width on large screens -->
     <div class="card w-100">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s"
+    
+        src={{fish['image']}}
+        
         class="card-img-top img-fluid"
         style="object-fit: cover; aspect-ratio: 16/9"
-        alt="..."
+        onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl19OePRIGVXq89oJuBFJobXimpku52TMFfglE7hi-z73gbOygODB-PYHkBTyf7vrFmLU&usqp=CAU'"
       />
       <div class="card-body">
         <h5 class="card-title">{{fish['common_name']}}</h5>
@@ -37,6 +39,7 @@
           data-bs-avg_length="{{fish['avg_length']}}"
           data-bs-avg_lifespan="{{fish['avg_lifespan']}}"
           data-bs-has_legs="{{fish['has_legs']}}"
+          data-bs-has_legs="{{fish['image']}}"
           data-bs-id="{{fish['id']}}"
         >
           More
@@ -70,6 +73,7 @@
       </div>
       <div class="modal-body">
         <p>
+
           <strong>Scientific Name: </strong><span id="scientific_name">Replaced</span>
           <br />
           <strong>Species: </strong><span id="species">Replaced</span>
