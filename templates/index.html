@@ -18,7 +18,7 @@
         style="object-fit: cover; aspect-ratio: 16/9"
         onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl19OePRIGVXq89oJuBFJobXimpku52TMFfglE7hi-z73gbOygODB-PYHkBTyf7vrFmLU&usqp=CAU'"
       />
-      <div class="card-body">
+      <div class="card-body bg-secondary text-light">
         <h5 class="card-title">{{fish['common_name']}}</h5>
         <p class="card-text">
           {{fish['scientific_name']}}
@@ -28,7 +28,7 @@
         <!-- Button trigger modal -->
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary btn-custom"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           data-bs-whatever="{{fish['common_name']}}"
@@ -61,12 +61,12 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content bg-secondary text-light">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close  btn-custom"
           data-bs-dismiss="modal"
           aria-label="Close"
         ></button>
@@ -91,8 +91,8 @@
         </p>
       </div>
       <div class="modal-footer">
-        <a href="#" id="update"><button type="button" class="btn btn-success">Update</button></a>
-        <a href="#" id="delete"><button type="button" class="btn btn-danger">Delete</button></a>
+        <a href="#" id="update"><button type="button" class="btn btn-success btn-custom ">Update</button></a>
+        <a href="#" id="delete"><button type="button" class="btn btn-danger btn-custom">Delete</button></a>
       </div>
     </div>
   </div>

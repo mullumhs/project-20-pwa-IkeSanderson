@@ -49,6 +49,7 @@ def init_routes(app):
         
 
         if request.method == 'POST':
+            # Updates the Fish's information from the form, redirects to the index page 
             id = request.form['id']
             fish = Fish.query.get(id)
             fish.common_name = request.form['common_name']
@@ -59,10 +60,11 @@ def init_routes(app):
             fish.avg_lifespan = int(request.form['avg_lifespan'])
             fish.water_type = request.form['water_type']
             fish.has_legs = request.form['has_legs']
+            fish.image = request.form['image']
             
             db.session.commit()
             return redirect(url_for('get_items'))
-        
+        # Finds the Fish by ID and returns the update page
         id = request.args.get("id")
         fish = db.get_or_404(Fish, id)
         print(fish)
@@ -72,7 +74,7 @@ def init_routes(app):
 
     @app.route('/delete', methods=['GET'])
     def delete_item():
-        # This route should handle deleting an existing item identified by the given ID.
+        # Deleting an existing Fish identified by the given ID.
         id = request.args.get("id")
         fish = db.get_or_404(Fish, id)
         print(fish)
@@ -82,6 +84,7 @@ def init_routes(app):
     
     @app.route('/search',methods=['GET', 'POST'])
     def search_fish():
+        # Searches existing Fish by common name and overides the index page with the query
         if request.method == 'POST':
             print("Search!!!!")
             query = request.form['search']

@@ -48,23 +48,25 @@
         <input type="radio" name="water_type" value="Fresh" checked/>
         <br>
         <label for="has_legs">Has Legs</label>
-        <label for="water_type">Yes</label>
+        <label for="has_legs">Yes</label>
+        
         {%endif%}
         
-        {% if fish.has_legs == 'yes' %} 
+        {% if fish.has_legs == 'Yes' %} 
         <input type="radio" name="has_legs" value="Yes" checked/>
         <label for="has_legs">No</label>
         <input type="radio" name="has_legs" value="No" />
-        <br />
-        <input type="submit" value="Update Fish" />
-        
         {%else%}
         <input type="radio" name="has_legs" value="Yes"/>
-        <label for="water_type">No</label>
+        <label for="has_legs">No</label>
         <input type="radio" name="has_legs" value="No" checked/>
-        <br />
-        <input type="submit" value="Update Fish" />
+        
         {%endif%}
+        <br>
+        <label for="image">Image URL:</label>
+        <input type="text" name="image" placeholder="Image URL" value ="{{fish.image}}" />
+        <br>
+        <input type="submit" value="Update Fish" />
       </form>
   </div>
     {% endblock %}
