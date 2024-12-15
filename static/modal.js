@@ -14,8 +14,7 @@ if (exampleModal) {
     const lifeData = button.getAttribute("data-bs-avg_lifespan");
     const legsData = button.getAttribute("data-bs-has_legs");
     const idData = button.getAttribute("data-bs-id");
-    // If necessary, you could initiate an Ajax request here
-    // and then do the updating in a callback.
+  
 
     // Update the modal's content.
     const modalTitle = exampleModal.querySelector(".modal-title");
@@ -28,7 +27,7 @@ if (exampleModal) {
     const has_legs = exampleModal.querySelector("#has_legs");
     const del = exampleModal.querySelector("#delete");
     const update = exampleModal.querySelector("#update");
-
+    // Selects where to replace the data
     modalTitle.textContent = `${recipient}`;
     species.textContent = `${speciesData}`;
     scientific_name.textContent = `${scientificData}`;

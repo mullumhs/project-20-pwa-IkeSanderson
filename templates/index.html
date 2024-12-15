@@ -2,9 +2,10 @@
 %}
 
 <div class="row ">
+  <!-- Creates a card for each of the fish in the data base -->
   {%for fish in fishes%}
   <div class="col-12 col-xl-6 col-xxl-3 mb-4">
-    <!-- This column will be full width on small screens, https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKR7ZFOTJTAu1YoR0sdq8QlxyH8gTNYnkQaA&s
+    <!-- This column will be full width on small screens, 
 
               half width on medium screens, 
 
@@ -25,7 +26,7 @@
           <br />
           {{fish['species']}}
         </p>
-        <!-- Button trigger modal -->
+        <!-- Button trigger modal, gets all the data from modal.js -->
         <button
           type="button"
           class="btn btn-primary btn-custom"
@@ -49,7 +50,7 @@
   </div>
   {%endfor%}
 
-  <!-- Add your page-specific content here -->
+  
 </div>
 
 <!-- Modal -->
@@ -71,6 +72,7 @@
           aria-label="Close"
         ></button>
       </div>
+      <!-- Defines the content of the modal -->
       <div class="modal-body ">
         <p>
 

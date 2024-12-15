@@ -2,12 +2,8 @@ from flask import render_template, request, redirect, url_for, flash
 from models import db, Fish # Also import your database model here
 
 
-# Define your routes inside the 'init_routes' function
-# Feel free to rename the routes and functions as you see fit
-# You may need to use multiple methods such as POST and GET for each route
-# You can use render_template or redirect as appropriate
-# You can also use flash for displaying status messages
 
+# Displays all the fish in the data base (home page)
 def init_routes(app):
 
     @app.route('/', methods=['GET'])
@@ -22,6 +18,7 @@ def init_routes(app):
 
 
     @app.route('/add', methods=['GET','POST'])
+    # Uses the add form to create a new fish for the database 
     def create_item():
         if request.method == 'POST':
             new_fish = Fish(
@@ -45,7 +42,7 @@ def init_routes(app):
 
     @app.route('/update', methods=['Get','POST'])
     def update_item():
-        # This route should handle updating an existing item identified by the given ID.
+        # This route updates an existing item identified by the given ID.
         
 
         if request.method == 'POST':

@@ -3,7 +3,7 @@
     
     
    <div class="text-light">
-      <!-- Add your page-specific content here -->
+      <!-- Defines the update form and fills the previous information  -->
       <form method="post">
           <h1>Update Fish </h1>
         
@@ -30,6 +30,7 @@
         <label for="avg_lifespan">Average Lifespan:</label>
         <input type="number" name="avg_lifespan" placeholder="Average Lifespan" value ="{{fish.avg_lifespan}}" required/>
         <br />
+        <!-- If Statements to check which radio buttons should be filled -->
         {% if fish.water_type == 'Salt' %} 
         <label for="water_type">Water Type:</label>
         <label for="water_type">Salt</label>

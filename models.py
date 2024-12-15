@@ -2,8 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-# Define your database model here
-# Example: class Item(db.Model):
+# Defines the database model 
+
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     common_name = db.Column(db.String(100), nullable = False)
